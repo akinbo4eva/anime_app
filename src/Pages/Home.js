@@ -1,28 +1,18 @@
 
-import './Styles/App.css'
-import Anime from './Anime';
-import Anime_fetch from './Hooks/Anime_fetch';
+import '../Styles/Anime.css'
+import Anime from '../src/Anime'
+import Anime_fetch from '../src/Hooks/Anime_fetch';
 
-const App = () => {
-  // const [score, setScore] = useState(1)
-  // const [bonus, setPercent] = useState(10)
-  // const [data, setData] = useState([])
+const Home = () => {
+
   const [data, setData] = Anime_fetch('https://nekos.best/api/v2/hug?amount=100')
-  // const [cart, setCart] = useState(0);
 
   const incrementCart = () => {
     const filteredData = data.filter(moore => moore.anime_name.toLowerCase() === ('Mononoke Hime').toLowerCase());
     setData(filteredData)
   }
 
-  // useEffect(() => {
-  //   fetch('https://nekos.best/api/v2/hug?amount=100').then(res => res.json()).then(data => {
-  //     setData(data.results)
-
-  //   })
-  // }, [])
-
-  // console.log(data, 'data')
+  
 
   return (
     <div className='App-header'>
@@ -37,4 +27,4 @@ const App = () => {
   )
 }
 
-export default App;
+export default Home;
